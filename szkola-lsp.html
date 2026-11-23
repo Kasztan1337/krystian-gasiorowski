@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Centrum Edukacyjne LSP – szkoła językowa Gdańsk</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--navy:#0B2545;--blue:#3E92CC;--sky:#E6F1FA;--warm:#F2A541;--bg:#F7FAFD;--ink:#12263F;--card:#fff;--line:#D8E3EE;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1628;--ink:#E8EFF7;--card:#11233D;--line:#24405F;--sky:#15304F}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3vw,2.1rem)}
+.w{max-width:1080px;margin:0 auto;padding:0 20px}section{padding:56px 0}
+header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:5}
+header .w{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.logo{font:800 1.2rem "Bricolage Grotesque",sans-serif;margin-right:auto}.logo b{color:var(--warm)}
+nav{display:flex;gap:4px;overflow-x:auto;max-width:100%}nav a{color:#cfe0f1;padding:6px 10px;border-radius:8px;text-decoration:none;white-space:nowrap;cursor:pointer;font-size:.95rem}nav a:hover{background:#ffffff1f}
+button,.btn{font:600 1rem "Source Sans 3",sans-serif;border:0;border-radius:10px;padding:10px 18px;cursor:pointer;background:var(--blue);color:#fff}
+.warm{background:var(--warm);color:#1b1305}.ghost{background:transparent;border:2px solid currentColor;color:inherit}.sm{padding:6px 12px;font-size:.9rem}.red{background:#C0392B}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--warm);outline-offset:2px}
+.hero{background:linear-gradient(135deg,var(--navy),#14467A);color:#fff;padding:72px 0}.hero p{max-width:60ch;color:#d4e4f4;font-size:1.15rem}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.tag{display:inline-block;background:var(--sky);color:var(--blue);border-radius:99px;padding:2px 10px;font-size:.82rem;margin:0 4px 4px 0}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.chips button{background:var(--sky);color:var(--ink)}.chips button.on{background:var(--navy);color:#fff}
+input,select,textarea{width:100%;font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);margin:4px 0 12px}
+label{font-weight:600;font-size:.92rem}label.c{display:flex;gap:8px;align-items:flex-start;font-weight:400}label.c input{width:auto;margin:5px 0}
+.two{display:grid;gap:0 16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.alt{background:var(--sky)}details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:8px}summary{cursor:pointer;font-weight:600}
+.av{width:56px;height:56px;border-radius:50%;background:var(--navy);color:var(--warm);display:grid;place-items:center;font:800 1.2rem "Bricolage Grotesque";margin-bottom:8px}
+.price{font:800 2rem "Bricolage Grotesque"}.opt{display:block;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1px solid var(--line);margin-bottom:8px}.opt:hover{border-color:var(--blue)}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:14px}.bar i{display:block;height:100%;background:var(--warm)}
+.tbl{overflow-x:auto}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);font-size:.95rem}
+.st{border-radius:99px;padding:2px 10px;font-size:.8rem;background:var(--sky)}.st.ok{background:#d6f0dc;color:#155c2a}.st.no{background:#f7d9d5;color:#8a2217}
+#app{display:none;min-height:70vh}#toasts{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:grid;gap:8px;z-index:20}
+.toast{background:var(--navy);color:#fff;border-left:5px solid var(--warm);padding:12px 16px;border-radius:10px;max-width:320px;box-shadow:0 6px 20px #0004}
+dialog{border:0;border-radius:16px;max-width:640px;width:92%;padding:24px;background:var(--card);color:var(--ink)}dialog::backdrop{background:#0008}
+footer{background:var(--navy);color:#cfe0f1;padding:28px 0;font-size:.92rem}footer a{color:var(--warm);cursor:pointer}
+.tabs{display:flex;gap:6px;margin:16px 0;flex-wrap:wrap}.tabs button{background:var(--sky);color:var(--ink)}.tabs .on{background:var(--navy);color:#fff}
+.demo{font-size:.9rem;background:var(--sky);padding:10px 12px;border-radius:10px;margin-top:8px}.demo a{color:var(--blue);cursor:pointer;font-weight:600}
+</style></head><body>
+<header><div class="w"><div class="logo">LSP<b>.</b> Centrum Edukacyjne</div>
+<nav id="nav"><a data-g="oferta">Oferta</a><a data-g="poziom">Test poziomujący</a><a data-g="lektorzy">Lektorzy</a><a data-g="cennik">Cennik</a><a data-g="faq">FAQ</a><a data-g="kontakt">Kontakt</a></nav>
+<span id="who"></span><button class="warm sm" id="loginBtn">Zaloguj się</button></div></header>
+
+<main id="pub">
+<div class="hero"><div class="w"><h1>Skuteczna nauka języków i przygotowanie do egzaminów w Centrum Edukacyjnym LSP</h1>
+<p>Zajęcia stacjonarne w Gdańsku (Stogi, ul. Hoża 14) oraz online w całej Polsce. Angielski, niemiecki, hiszpański, matematyka i język polski – dla dzieci, młodzieży i dorosłych.</p>
+<div class="cta"><button class="warm" data-g="probna">Umów bezpłatną lekcję próbną</button><button class="ghost" id="login2">Zaloguj się do panelu</button></div></div></div>
+
+<section id="oferta"><div class="w"><h2>Oferta kursów i korepetycji</h2>
+<div class="chips" id="chips"></div><div class="grid" id="courses"></div></div></section>
+
+<section class="alt" id="probna"><div class="w"><h2>Bezpłatna lekcja próbna</h2>
+<form class="card" id="trialF"><div class="two">
+<div><label>Przedmiot / język<select name="s"><option>Angielski</option><option>Niemiecki</option><option>Hiszpański</option><option>Matematyka</option><option>Język polski</option><option>Egzamin ósmoklasisty</option><option>Matura</option></select></div>
+<div><label>Forma nauki<select name="f"><option>Stacjonarnie – ul. Hoża 14, Gdańsk</option><option>Online</option></select></div>
+<div><label>Preferowane dni i godziny<input name="d" placeholder="np. wt/czw po 16:00" required></label></div>
+<div><label>Imię<input name="n" required autocomplete="given-name"></label></div>
+<div><label>Telefon<input name="t" type="tel" required autocomplete="tel"></label></div>
+<div><label>E-mail<input name="e" type="email" required autocomplete="email"></label></div></div>
+<button class="warm">Wyślij zgłoszenie</button></form></div></section>
+
+<section id="poziom"><div class="w"><h2>Test poziomujący z angielskiego (A1–C2)</h2><div class="card" id="quiz"></div></div></section>
+<section class="alt" id="lektorzy"><div class="w"><h2>Nasi lektorzy</h2><div class="grid" id="teachers"></div></div></section>
+<section id="cennik"><div class="w"><h2>Cennik i pakiety</h2><div class="grid" id="prices"></div>
+<p>Wystawiamy faktury VAT – podaj NIP przy zapisie lub w panelu ucznia.</p></div></section>
+<section class="alt"><div class="w"><h2>Opinie kursantów</h2><div class="grid">
+<div class="card">„Po trzech miesiącach przestałem bać się rozmów po angielsku. Zajęcia są konkretne.” <br><b>– Marek, uczeń Business English</b></div>
+<div class="card">„Córka zdała egzamin ósmoklasisty z wynikiem powyżej oczekiwań.” <br><b>– Agnieszka, mama Zuzi</b></div>
+<div class="card">„Wygodne lekcje online i świetny kontakt z sekretariatem.” <br><b>– Piotr, kurs niemieckiego</b></div></div></div></section>
+<section id="faq"><div class="w"><h2>Najczęstsze pytania</h2>
+<details><summary>Jak dojechać na ul. Hożą 14?</summary>Szkoła mieści się w Gdańsku-Stogach, ul. Hoża 14. Dojedziesz tramwajem lub autobusem miejskim linii jadących na Stogi – aktualne rozkłady sprawdzisz w aplikacji Jakdojade.</details>
+<details><summary>Jak działają lekcje online?</summary>Przy każdej zdalnej lekcji w panelu ucznia widnieje przycisk „Dołącz do zajęć” z linkiem do Google Meet, Zoom lub Teams.</details>
+<details><summary>Jakie są zasady odwoływania lekcji?</summary>Odwołanie powyżej 24 godzin przed startem zwraca lekcję do pakietu. Odwołanie później oznacza lekcję jako wykorzystaną.</details></div></section>
+<section class="alt" id="kontakt"><div class="w"><h2>Kontakt</h2><div class="two">
+<form class="card" id="contF"><label>Imię i nazwisko<input name="n" required></label><label>E-mail<input type="email" name="e" required></label><label>Telefon<input name="t" type="tel"></label><label>Temat / język<input name="s" required></label><label>Wiadomość<textarea name="m" rows="4" required></textarea></label>
+<label class="c"><input type="checkbox" required> Wyrażam zgodę na przetwarzanie danych zgodnie z <a data-doc="priv">Polityką Prywatności (RODO)</a>.</label><button class="warm">Wyślij wiadomość</button></form>
+<div class="card"><h3>Centrum Edukacyjne LSP</h3><p>ul. Hoża 14, 80-628 Gdańsk (Stogi)<br>Telefon: [WPISZ NUMER TELEFONU]<br>E-mail: [WPISZ E-MAIL SZKOŁY]<br><a href="https://www.facebook.com/p/Centrum-Edukacyjne-LSP-100092558928171/" target="_blank" rel="noopener">Profil na Facebooku</a></p>
+<p><a href="https://www.google.com/maps/search/?api=1&query=Ho%C5%BCa+14+80-628+Gda%C5%84sk" target="_blank" rel="noopener"><button class="sm">Otwórz mapę Google</button></a></p>
+<p>Dojazd: tramwaj lub autobus na Stogi, przystanek w pobliżu ul. Hożej.</p></div></div></div></section>
+</main>
+
+<main id="app"><div class="w" style="padding-top:28px" id="appIn"></div></main>
+<footer><div class="w">© Centrum Edukacyjne LSP, ul. Hoża 14, Gdańsk · <a data-doc="priv">Polityka Prywatności</a> · <a data-doc="reg">Regulamin</a><br>To prototyp z danymi demonstracyjnymi – dane nie są wysyłane na serwer.</div></footer>
+<dialog id="dlg"></dialog><div id="toasts" aria-live="polite"></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;$('#toasts').append(d);setTimeout(()=>d.remove(),3800)}
+const H=3600e3,now=Date.now(),fmt=t=>new Date(t).toLocaleString('pl-PL',{weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+const T=[{id:'t1',n:'Anna Kowalska',s:'Angielski, Business English',b:'Certyfikat CAE, 9 lat doświadczenia. Konwersacje i angielski w pracy.'},
+{id:'t2',n:'Tomasz Nowak',s:'Matematyka, egzaminy',b:'Przygotowuje do egzaminu ósmoklasisty i matury rozszerzonej.'},
+{id:'t3',n:'Marta Zielińska',s:'Język polski, niemiecki',b:'Polonistka i germanistka. Matura ustna i pisemna.'}];
+const C=[{t:'Angielski A1–C2',d:'Konwersacje, Business English, wszystkie poziomy.',k:['Stacjonarnie','Online','Indywidualne','Grupowe']},
+{t:'Niemiecki i hiszpański',d:'Kursy od podstaw dla dorosłych i młodzieży.',k:['Stacjonarnie','Online','Grupowe']},
+{t:'Egzamin ósmoklasisty',d:'Matematyka, polski i angielski – systematyczny plan.',k:['Stacjonarnie','Online','Indywidualne','Grupowe']},
+{t:'Matura podstawowa i rozszerzona',d:'Angielski, polski, matematyka.',k:['Stacjonarnie','Online','Indywidualne']},
+{t:'Zajęcia dla dzieci',d:'Nauka przez zabawę, grupy do 6 osób.',k:['Stacjonarnie','Grupowe']},
+{t:'Korepetycje szkolne',d:'Pomoc w bieżącej nauce, każdy przedmiot.',k:['Stacjonarnie','Online','Indywidualne']}];
+const P=[['Lekcja pojedyncza','80 zł','60 minut'],['Pakiet 4 lekcji','300 zł','75 zł za lekcję'],['Pakiet 8 lekcji','560 zł','70 zł za lekcję'],['Pakiet 12 lekcji','780 zł','65 zł za lekcję']];
+const U={'uczen@lsp.pl':{p:'demo123',r:'student',n:'Julia Wiśniewska'},'lektor@lsp.pl':{p:'demo123',r:'teacher',n:'Anna Kowalska',tid:'t1'},'admin@lsp.pl':{p:'demo123',r:'admin',n:'Sekretariat LSP'}};
+let L=[{id:1,t:'t1',topic:'Present Perfect w praktyce',at:now+30*H,m:'S',room:'Sala 2',st:'potwierdzona',att:''},
+{id:2,t:'t1',topic:'Rozmowa kwalifikacyjna',at:now+72*H,m:'O',link:'https://meet.google.com/demo-lsp',st:'potwierdzona',att:''},
+{id:3,t:'t1',topic:'Czasy przeszłe',at:now-48*H,m:'S',room:'Sala 2',st:'zakończona',att:'Obecny'},
+{id:4,t:'t2',topic:'Funkcje kwadratowe',at:now+30*H,m:'S',room:'Sala 1',st:'potwierdzona',att:''}];
+let pack=8,msgs=[],me=null,tab=0,nid=10;
+const pub=$('#pub'),app=$('#app');
+function go(id){if(me)logout();$('#'+id).scrollIntoView({behavior:'smooth'})}
+$$('[data-g]').forEach(a=>a.onclick=()=>go(a.dataset.g));
+const DOC={priv:['Polityka Prywatności (RODO)','Administratorem danych jest Centrum Edukacyjne LSP, ul. Hoża 14, 80-628 Gdańsk. Dane (imię, e-mail, telefon) przetwarzamy w celu kontaktu, zapisu na zajęcia i rozliczeń. Masz prawo dostępu, sprostowania, usunięcia i przeniesienia danych oraz wniesienia skargi do UODO. Dane nie są przekazywane podmiotom trzecim poza dostawcami usług IT i poczty. [Treść do uzupełnienia przez właściciela szkoły.]'],
+reg:['Regulamin Świadczenia Usług Edukacyjnych','1. Usługą jest nauka w formie stacjonarnej (ul. Hoża 14) lub online. 2. Pakiet lekcji jest ważny 3 miesiące od zakupu. 3. Odwołanie lekcji powyżej 24 godzin przed startem zwraca ją do pakietu; później lekcja przepada. 4. Płatności z góry; faktury VAT na życzenie. 5. Szkoła może zmienić termin z ważnych przyczyn, zachowując prawo ucznia do lekcji. [Treść do uzupełnienia przez właściciela szkoły.]']};
+function doc(k){const d=$('#dlg');d.innerHTML=`<h2>${DOC[k][0]}</h2><p>${DOC[k][1]}</p><button onclick="this.closest('dialog').close()">Zamknij</button>`;d.showModal()}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-doc]');if(a)doc(a.dataset.doc)});
+// public
+let flt=null;const KEYS=['Stacjonarnie','Online','Indywidualne','Grupowe'];
+function drawC(){$('#chips').innerHTML=KEYS.map(k=>`<button class="${flt==k?'on':''}" data-k="${k}">${k==='Stacjonarnie'?'Stacjonarnie Gdańsk Hoża 14':k}</button>`).join('');
+$$('#chips button').forEach(b=>b.onclick=()=>{flt=flt==b.dataset.k?null:b.dataset.k;drawC()});
+$('#courses').innerHTML=C.filter(c=>!flt||c.k.includes(flt)).map(c=>`<div class="card"><h3>${c.t}</h3><p>${c.d}</p>${c.k.map(k=>`<span class="tag">${k}</span>`).join('')}<p><button class="sm warm" data-g="probna">Zapisz się</button></p></div>`).join('');
+$$('#courses [data-g]').forEach(a=>a.onclick=()=>go('probna'))}drawC();
+$('#teachers').innerHTML=T.map(t=>`<div class="card"><div class="av">${t.n[0]}</div><h3>${t.n}</h3><span class="tag">${t.s}</span><p>${t.b}</p></div>`).join('');
+$('#prices').innerHTML=P.map(p=>`<div class="card"><h3>${p[0]}</h3><div class="price">${p[1]}</div><p>${p[2]}</p></div>`).join('');
+$('#trialF').onsubmit=e=>{e.preventDefault();toast('Zgłoszenie na lekcję próbną zostało wysłane. Oddzwonimy w ciągu doby.');e.target.reset()};
+$('#contF').onsubmit=e=>{e.preventDefault();msgs.push({n:e.target.n.value,s:e.target.s.value,m:e.target.m.value});toast('Wiadomość e-mail została wysłana do sekretariatu');e.target.reset()};
+// quiz
+const Q=[['She ___ to school every day.','goes','go','going','is go',0,1],['I ___ a book now.','read','am reading','reads','have read',1,1],['If I ___ rich, I would travel.','am','will be','were','would be',2,2],['He has lived here ___ 2015.','for','since','from','during',1,2],['This is the ___ film I have seen.','better','best','good','most good',1,2],['You ___ smoke here. It is forbidden.','mustn\'t','don\'t have to','needn\'t','shouldn\'t have',0,2],['By next June she ___ the course.','will finish','will have finished','finishes','is finishing',1,3],['I wish I ___ more time yesterday.','had','have had','had had','would have',2,4],['Hardly ___ the door when the phone rang.','I had opened','had I opened','I opened','did I open',1,5],['The proposal, ___ merits are doubtful, was rejected.','which','whose','that','of which',1,5]];
+const LV=['A1','A2','B1','B2','C1','C2'],REC=['Angielski A1–A2 – grupa początkująca','Angielski A2–B1 – kurs ogólny','Angielski B1–B2 – konwersacje','Angielski B2–C1 – Business English','Angielski C1 – przygotowanie do CAE','Angielski C2 – zajęcia indywidualne'];
+let qi=0,sc=0;
+function drawQ(){const q=$('#quiz');if(qi>=Q.length){const lv=Math.min(5,Math.round(sc/Q.length*5.4));q.innerHTML=`<h3>Twój szacowany poziom: ${LV[lv]}</h3><p>Wynik: ${sc}/${Q.length}. Polecamy: <b>${REC[lv]}</b>.</p><button class="warm" onclick="go('probna')">Umów lekcję próbną</button> <button class="ghost" onclick="qi=0;sc=0;drawQ()">Rozwiąż ponownie</button>`;return}
+const r=Q[qi];q.innerHTML=`<div class="bar"><i style="width:${qi/Q.length*100}%"></i></div><p>Pytanie ${qi+1} z ${Q.length}</p><h3>${r[0]}</h3>`+[1,2,3,4].map((_,i)=>`<button class="opt" data-i="${i}">${r[i+1]}</button>`).join('');
+$$('.opt',q).forEach(b=>b.onclick=()=>{if(+b.dataset.i===r[5])sc++;qi++;drawQ()})}drawQ();
+// auth
+function loginDlg(){const d=$('#dlg');d.innerHTML=`<h2>Logowanie do panelu</h2><form id="lf"><label>E-mail<input name="e" type="email" required autocomplete="username"></label><label>Hasło<input name="p" type="password" required autocomplete="current-password"></label><button class="warm">Zaloguj się</button> <button type="button" class="ghost" id="forgot">Nie pamiętam hasła</button></form>
+<div class="demo">Konta demo (hasło: demo123):<br><a data-d="uczen@lsp.pl">uczeń</a> · <a data-d="lektor@lsp.pl">lektor</a> · <a data-d="admin@lsp.pl">administrator</a></div>`;
+$$('[data-d]',d).forEach(a=>a.onclick=()=>{$('[name=e]',d).value=a.dataset.d;$('[name=p]',d).value='demo123'});
+$('#forgot').onclick=()=>toast('Link do zmiany hasła został wysłany na Twój e-mail');
+$('#lf').onsubmit=e=>{e.preventDefault();const u=U[e.target.e.value.trim().toLowerCase()];if(!u||u.p!==e.target.p.value)return toast('Nieprawidłowy e-mail lub hasło');me=u;d.close();toast('Zalogowano jako '+u.n);render()};d.showModal()}
+$('#loginBtn').onclick=()=>me?logout():loginDlg();$('#login2').onclick=loginDlg;
+function logout(){me=null;render();toast('Wylogowano')}
+const tn=id=>(T.find(t=>t.id===id)||{}).n;
+const loc=l=>l.m==='S'?`Stacjonarnie: ul. Hoża 14, ${l.room}`:'Online';
+function render(){pub.style.display=me?'none':'block';app.style.display=me?'block':'none';$('#nav').style.display=me?'none':'flex';$('#who').textContent=me?me.n:'';$('#loginBtn').textContent=me?'Wyloguj':'Zaloguj się';if(me){tab=0;panel()}else scrollTo(0,0)}
+function tabs(a){return`<div class="tabs">${a.map((x,i)=>`<button class="${i==tab?'on':''}" data-tab="${i}">${x}</button>`).join('')}</div>`}
+function bind(){$$('[data-tab]').forEach(b=>b.onclick=()=>{tab=+b.dataset.tab;panel()});$$('[data-act]').forEach(b=>b.onclick=()=>act(b.dataset.act,+b.dataset.id))}
+function rows(ls,ctl){return`<div class="tbl"><table><tr><th>Termin</th><th>Lektor</th><th>Temat</th><th>Forma</th><th>Status</th><th></th></tr>`+ls.sort((a,b)=>a.at-b.at).map(l=>`<tr><td>${fmt(l.at)}</td><td>${tn(l.t)}</td><td>${l.topic}</td><td>${loc(l)}</td><td><span class="st ${l.st=='odwołana'?'no':l.st=='zakończona'?'ok':''}">${l.st}</span></td><td>${ctl(l)}</td></tr>`).join('')+`</table></div>`}
+function panel(){const r=me.r,a=$('#appIn');
+if(r==='student'){const up=L.filter(l=>l.st==='potwierdzona'),done=L.filter(l=>l.st==='zakończona').length;
+const t=[`<h3>Mój plan zajęć</h3>`+rows(L.filter(l=>l.t==='t1'||l.t==='t2'),l=>l.st!=='potwierdzona'?'':(l.m==='O'?`<a href="${l.link}" target="_blank" rel="noopener"><button class="sm warm">Dołącz do zajęć</button></a> `:'')+`<button class="sm ghost" data-act="cancel" data-id="${l.id}">Odwołaj</button>`),
+`<h3>Umów lekcję</h3><form id="bk" class="card"><div class="two"><div><label>Lektor<select name="t">${T.map(t=>`<option value="${t.id}">${t.n}</option>`)}</select></label></div><div><label>Tryb<select name="m"><option value="S">Stacjonarnie – ul. Hoża 14</option><option value="O">Online</option></select></label></div><div><label>Termin<input type="datetime-local" name="d" required></label></div><div><label>Powtarzaj<select name="w"><option value="1">Jednorazowo</option><option value="4">Co tydzień (4 lekcje)</option></select></label></div></div><button class="warm">Zarezerwuj</button></form>`,
+`<div class="grid"><div class="card"><h3>Materiały</h3><p>📄 Present Perfect – ćwiczenia.pdf</p><p>Słówka: <i>deadline, to postpone, schedule</i></p><p><b>Zadanie domowe:</b> 10 zdań z Present Perfect do czwartku.</p></div><div class="card"><h3>Wiadomość do lektora</h3><form id="mf"><textarea rows="3" required placeholder="Treść wiadomości"></textarea><button class="sm">Wyślij e-mail</button></form></div></div>`,
+`<div class="grid"><div class="card"><h3>Pakiet</h3><div class="price">${pack}</div><p>pozostałych lekcji</p></div><div class="card"><h3>Frekwencja</h3><div class="price">92%</div><p>${done} odbytych zajęć</p></div><div class="card"><h3>Płatności</h3><p><span class="st ok">opłacone</span> Pakiet 8 lekcji – 560 zł</p><label>NIP do faktury<input placeholder="000-000-00-00"></label></div></div>`];
+a.innerHTML=`<h2>Panel ucznia</h2>`+tabs(['Plan','Rezerwacja','Materiały i wiadomości','Pakiet i płatności'])+t[tab];bind();
+const bk=$('#bk');if(bk)bk.onsubmit=e=>{e.preventDefault();const f=e.target,n=+f.w.value;for(let i=0;i<n;i++)L.push({id:nid++,t:f.t.value,topic:'Lekcja z rezerwacji',at:new Date(f.d.value).getTime()+i*168*H,m:f.m.value,room:'Sala '+(1+nid%3),link:'https://meet.google.com/demo-lsp',st:'potwierdzona',att:''});toast(f.m.value==='S'?'Zajęcia w Gdańsku przy ul. Hożej 14 zostały zarezerwowane':'Lekcja online została zarezerwowana');toast('E-mail z potwierdzeniem został wysłany');tab=0;panel()};
+const mf=$('#mf');if(mf)mf.onsubmit=e=>{e.preventDefault();toast('Wiadomość e-mail została wysłana');e.target.reset()}}
+if(r==='teacher'){const mine=L.filter(l=>l.t===me.tid);const t=[`<h3>Mój grafik</h3>`+rows(mine,l=>l.st==='potwierdzona'?`<button class="sm" data-act="pres" data-id="${l.id}">Obecny</button> <button class="sm red" data-act="abs" data-id="${l.id}">Nieobecny</button>`:l.att),
+`<div class="grid"><div class="card"><h3>Julia Wiśniewska</h3><span class="tag">B1</span><p>Cel: awans w pracy. Frekwencja 92%. Ostatni temat: Czasy przeszłe.</p></div><div class="card"><h3>Grupa B2 wtorki</h3><span class="tag">B2</span><p>6 osób. Cel: certyfikat FCE.</p><button class="sm" data-act="mail" data-id="0">Napisz do grupy</button></div></div>`];
+a.innerHTML=`<h2>Panel lektora</h2>`+tabs(['Grafik i dziennik','Uczniowie i grupy'])+t[tab];bind()}
+if(r==='admin'){const t=[`<h3>Kalendarz szkoły</h3>`+rows(L,l=>l.st==='potwierdzona'?`<button class="sm red" data-act="cancel" data-id="${l.id}">Odwołaj</button>`:''),
+`<form id="ar" class="card"><h3>Dodaj lekcję stacjonarną</h3><div class="two"><div><label>Lektor<select name="t">${T.map(t=>`<option value="${t.id}">${t.n}</option>`)}</select></label></div><div><label>Sala<select name="r"><option>Sala 1</option><option>Sala 2</option><option>Sala 3</option></select></label></div><div><label>Termin<input type="datetime-local" name="d" required></label></div></div><button class="warm">Dodaj</button></form>`,
+`<div class="grid"><div class="card"><h3>Dopisz pakiet</h3><form id="ap"><label>Uczeń<select><option>Julia Wiśniewska</option></select></label><label>Liczba lekcji<select name="n"><option>4</option><option>8</option><option>12</option></select></label><button class="sm warm">Dopisz pakiet</button></form></div><div class="card"><h3>Skrzynka z formularza (${msgs.length})</h3>${msgs.map(m=>`<p><b>${m.n}</b> – ${m.s}<br>${m.m}</p>`).join('')||'<p>Brak wiadomości. Wyślij testową z formularza kontaktowego.</p>'}</div></div>`,
+`<div class="card"><h3>Użytkownicy</h3><div class="tbl"><table><tr><th>Konto</th><th>Rola</th></tr>${Object.entries(U).map(([e,u])=>`<tr><td>${u.n} (${e})</td><td>${u.r}</td></tr>`).join('')}</table></div></div>`];
+a.innerHTML=`<h2>Panel administratora</h2>`+tabs(['Kalendarz','Sale','Pakiety i wiadomości','Użytkownicy'])+t[tab];bind();
+const ar=$('#ar');if(ar)ar.onsubmit=e=>{e.preventDefault();const s=new Date(ar.d.value).getTime();if(L.some(l=>l.m==='S'&&l.room===ar.r.value&&l.st==='potwierdzona'&&Math.abs(l.at-s)<H))return toast(ar.r.value+' jest zajęta w tym terminie. Wybierz inną salę lub godzinę.');L.push({id:nid++,t:ar.t.value,topic:'Zajęcia dodane przez sekretariat',at:s,m:'S',room:ar.r.value,st:'potwierdzona',att:''});toast('Zajęcia przy ul. Hożej 14 zostały dodane');tab=0;panel()};
+const ap=$('#ap');if(ap)ap.onsubmit=e=>{e.preventDefault();pack+=+ap.n.value;toast('Pakiet został dopisany. Uczeń ma teraz '+pack+' lekcji')}}}
+function act(k,id){const l=L.find(x=>x.id===id);
+if(k==='cancel'){if(l.at-Date.now()>24*H){l.st='odwołana';if(me.r==='student')pack++;toast('Lekcja odwołana – wraca do pakietu')}else{l.st='odwołana';toast('Odwołanie poniżej 24 h – lekcja zostaje rozliczona jako wykorzystana')}}
+if(k==='pres'){l.st='zakończona';l.att='Obecny';toast('Obecność zapisana')}
+if(k==='abs'){l.st='zakończona';l.att='Nieobecny';toast('Nieobecność zapisana')}
+if(k==='mail')toast('Wiadomość e-mail została wysłana do grupy');panel()}
+</script></body></html>

@@ -78,6 +78,9 @@ h2 .path{color:var(--muted);font-weight:400}
 .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
 .proj{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
 .proj .shot{aspect-ratio:16/10;background:repeating-linear-gradient(45deg,var(--panel2),var(--panel2) 10px,var(--panel) 10px,var(--panel) 20px);display:grid;place-items:center;color:var(--muted);font:13px var(--mono)}
+.proj .shot{position:relative;overflow:hidden}
+.proj .shot iframe{position:absolute;top:0;left:0;width:1280px;height:800px;border:0;transform-origin:0 0;pointer-events:none;background:#fff}
+.proj .shot a.cover{position:absolute;inset:0;z-index:2}
 .proj .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 .proj .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
 .proj .kind{font:12px var(--mono);color:var(--amber)}
@@ -122,7 +125,7 @@ footer{padding:28px 0 44px;color:var(--muted);font:13px var(--mono);border-top:1
   .hero{grid-template-columns:1fr;padding-top:44px}
   .about{grid-template-columns:1fr}
   nav ul{gap:14px}
-  nav ul li:nth-child(1),nav ul li:nth-child(2){display:none}
+  nav ul li:nth-child(2),nav ul li:nth-child(3){display:none}
 }
 @media (prefers-reduced-motion:reduce){.caret{animation:none}html{scroll-behavior:auto}}
 </style>
@@ -133,6 +136,7 @@ footer{padding:28px 0 44px;color:var(--muted);font:13px var(--mono);border-top:1
   <div class="wrap">
     <a class="logo" href="#top"><i>&gt;</i> krystian.dev</a>
     <ul>
+      <li><a href="#prace">realizacje</a></li>
       <li><a href="#oferta">oferta</a></li>
       <li><a href="#o-mnie">o-mnie</a></li>
       <li><a class="cta" href="#kontakt">kontakt</a></li>
@@ -149,7 +153,7 @@ footer{padding:28px 0 44px;color:var(--muted);font:13px var(--mono);border-top:1
       <div class="typed" aria-label="Strony wizytówki, landing page, strony dla firm"><span id="typed"></span><span class="caret" aria-hidden="true"></span></div>
       <p class="lead">Szybkie, nowoczesne i czytelne na każdym telefonie. Od pomysłu, przez projekt, po uruchomienie na serwerze.</p>
       <div class="btns">
-        <a class="btn main" href="#oferta">./zobacz-ofertę</a>
+        <a class="btn main" href="#prace">./zobacz-realizacje</a>
         <a class="btn alt" href="#kontakt">./zamów-stronę</a>
       </div>
     </div>
@@ -164,6 +168,12 @@ footer{padding:28px 0 44px;color:var(--muted);font:13px var(--mono);border-top:1
       </div>
     </div>
   </div>
+
+  <section id="prace">
+    <h2><span class="p">$</span> ls <span class="path">./realizacje</span></h2>
+    <p class="sub">Wybrane strony, które zbudowałem. Kliknij, żeby zobaczyć je na żywo.</p>
+    <div class="projects" id="projects"></div>
+  </section>
 
   <section id="oferta">
     <h2><span class="p">$</span> cat <span class="path">oferta.md</span></h2>
@@ -223,11 +233,7 @@ footer{padding:28px 0 44px;color:var(--muted);font:13px var(--mono);border-top:1
 </footer>
 
 <script>
-/* Sekcja "Realizacje" jest teraz wyłączona (usunięta z HTML).
-   Dane poniżej zostają na później. Żeby ją przywrócić, wstaw do <main>
-   <section id="prace"><div class="projects" id="projects"></div></section>
-
-   ============================================================
+/* ============================================================
    JAK DODAĆ STRONĘ DO REALIZACJI
    Skopiuj jeden blok { ... } poniżej, wklej go na początku listy
    i zmień dane:
@@ -239,11 +245,12 @@ footer{padding:28px 0 44px;color:var(--muted);font:13px var(--mono);border-top:1
 const PROJECTS = [
   {
     kind: "Landing page",
-    title: "Strona dla szkoły językowej",
-    description: "Przykładowa realizacja: strona z ofertą kursów i formularzem kontaktowym. Zastąp ten opis własnym.",
-    tags: ["HTML", "CSS", "JavaScript"],
+    title: "Centrum Edukacyjne LSP – strona i panel szkoły językowej",
+    description: "Strona wizytówka z ofertą, testem poziomującym i formularzami oraz panele uczniów, lektorów i sekretariatu (prototyp z danymi demonstracyjnymi).",
+    tags: ["HTML", "CSS", "JavaScript", "RWD"],
     image: "",
-    link: ""
+    preview: "szkola-lsp.html",
+    link: "szkola-lsp.html"
   },
   {
     kind: "Strona wizytówka",
@@ -264,10 +271,9 @@ const PROJECTS = [
 ];
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const projectsBox = document.getElementById("projects");
-if (projectsBox) projectsBox.innerHTML = PROJECTS.map(p => `
+document.getElementById("projects").innerHTML = PROJECTS.map(p => `
   <article class="proj">
-    <div class="shot">${p.image ? `<img src="${esc(p.image)}" alt="Podgląd: ${esc(p.title)}" loading="lazy">` : "miejsce na screenshot"}</div>
+    <div class="shot">${p.preview ? `<iframe src="${esc(p.preview)}" title="Podgląd: ${esc(p.title)}" loading="lazy" sandbox="allow-scripts" tabindex="-1" aria-hidden="true"></iframe>${p.link ? `<a class="cover" href="${esc(p.link)}" target="_blank" rel="noopener" aria-label="Otwórz: ${esc(p.title)}"></a>` : ""}` : p.image ? `<img src="${esc(p.image)}" alt="Podgląd: ${esc(p.title)}" loading="lazy">` : "miejsce na screenshot"}</div>
     <div class="body">
       <span class="kind">${esc(p.kind||"")}</span>
       <h3>${esc(p.title)}</h3>
@@ -276,6 +282,10 @@ if (projectsBox) projectsBox.innerHTML = PROJECTS.map(p => `
       ${p.link ? `<a class="live" href="${esc(p.link)}" target="_blank" rel="noopener">./zobacz-na-żywo</a>` : ""}
     </div>
   </article>`).join("");
+
+/* skalowanie podglądów (iframe 1280px) do szerokości karty */
+function fitShots(){document.querySelectorAll(".shot iframe").forEach(f=>{f.style.transform="scale("+(f.parentElement.clientWidth/1280)+")"})}
+fitShots();addEventListener("resize",fitShots);addEventListener("load",fitShots);
 
 /* efekt pisania w hero */
 const words = ["strony wizytówki", "landing page", "strony dla firm", "strony z bazą danych"];

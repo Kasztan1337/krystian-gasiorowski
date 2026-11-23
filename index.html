@@ -252,25 +252,7 @@ const PROJECTS = [
     preview: "szkola-lsp.html",
     link: "szkola-lsp.html"
   },
-  {
-    kind: "Strona wizytówka",
-    title: "Strona lokalnej firmy usługowej",
-    description: "Przykładowa realizacja: prezentacja usług, galeria i dane kontaktowe. Zastąp ten opis własnym.",
-    tags: ["HTML", "CSS", "RWD"],
-    image: "",
-    link: ""
-  },
-  {
-    kind: "Strona z bazą danych",
-    title: "Serwis z katalogiem",
-    description: "Przykładowa realizacja: strona z bazą danych i panelem do dodawania treści. Zastąp ten opis własnym.",
-    tags: ["SQL", "JavaScript", "Linux"],
-    image: "",
-    link: ""
-  }
-];
-
-const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  {const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 document.getElementById("projects").innerHTML = PROJECTS.map(p => `
   <article class="proj">
     <div class="shot">${p.preview ? `<iframe src="${esc(p.preview)}" title="Podgląd: ${esc(p.title)}" loading="lazy" sandbox="allow-scripts" tabindex="-1" aria-hidden="true"></iframe>${p.link ? `<a class="cover" href="${esc(p.link)}" target="_blank" rel="noopener" aria-label="Otwórz: ${esc(p.title)}"></a>` : ""}` : p.image ? `<img src="${esc(p.image)}" alt="Podgląd: ${esc(p.title)}" loading="lazy">` : "miejsce na screenshot"}</div>
